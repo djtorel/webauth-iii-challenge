@@ -1,16 +1,16 @@
 const db = require('../dbConfig');
 
-const getUsers = () => db('users').select('id', 'username');
+const usersTbl = () => db('users');
+const userGetSelector = () => usersTbl().select('id', 'username');
 
-const getUserBy = filter => db('users').where(filter);
+const getUsers = () => userGetSelector();
 
-const getUserById = id =>
-  db('users')
-    .where({ id })
-    .first();
+const getUserBy = filter => userGetSelector().where(filter);
+
+const getUserById = id => getUserBy({ id }).first();
 
 const addUser = user =>
-  db('users')
+  usersTbl()
     .insert(user)
     .then(([id]) => getUserById(id));
 
