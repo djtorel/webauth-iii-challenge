@@ -5,6 +5,9 @@
   "repository": "git@github.com:djtorel/webauth-iii-challenge.git",
   "author": "Dominic Torruellas <dom@domtorr.com>",
   "license": "MIT",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
   "devDependencies": {
     "eslint": "^6.3.0",
     "nodemon": "^1.19.1"
